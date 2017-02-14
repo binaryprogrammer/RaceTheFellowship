@@ -1,3 +1,182 @@
 <resources>
     <string name="app_name">Race the Fellowship</string>
+    <string name="notification_subtitle">Counting your steps</string>
+
+    <string name="started">Pedometer started.</string>
+    <string name="stopped">Pedometer stopped.</string>
+
+    <string name="steps">steps</string>
+    <string name="kilometers">kilometers</string>
+    <string name="miles">miles</string>
+    <string name="steps_per_minute">steps / minute</string>
+    <string name="kilometers_per_hour">kilometers / hour</string>
+    <string name="miles_per_hour">miles / hour</string>
+    <string name="calories_burned">calories burned</string>
+    <string name="centimeters">centimeters</string>
+    <string name="inches">inches</string>
+    <string name="kilograms">kilograms</string>
+    <string name="pounds">pounds</string>
+
+    <string name="desired_pace">Desired pace:</string>
+    <string name="desired_speed">Desired speed:</string>
+
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="reset">Reset</string>
+    <string name="quit">Quit</string>
+
+    <!-- FRODOS ADVENTURES-->
+    <!--<string name="Frodo_1">Frodo, Sam, and Pippin have gone 'round the west end, jumped the hedge, and begun their journey to Crickhollow.</string>
+    <string name="Frodo_2">The group heads west down the lane.</string>
+    <string name="Frodo_3">They've left the lane to follow the hedgerows south.</string>
+    <string name="Frodo_4">Frodo crosses a small stream on a plank bridge.</string>
+    <string name="Frodo_5">They've crossed The Great Road from the Brandywine Bridge and entered Tookland.</string>
+    <string name="Frodo_6">The lights from Hobbiton can be seen behind them as they climb the fist slopes of Green Hill Country.</string>
+    <string name="Frodo_7">It's the last view of Hobbiton.</string>
+    <string name="Frodo_8">They've stop for supper in a birch grove.</string>
+    <string name="Frodo_9">They've reached Stock Road.</string>
+    <string name="Frodo_10">They've setup camp just over the hill and sleep under a large tree.</string>
+
+    <string name="Frodo_11">First and second breakfast at camp.</string>
+    <string name="Frodo_12">The road rolls up and down.</string>
+    <string name="Frodo_13">They stop to rest at the top of a steep bank where they can see across Woody End to the river</string>
+    <string name="Frodo_14">The sun is getting low as they descend the hill.</string>
+    <string name="Frodo_15">Their first encounter with a Black Rider.</string>
+    <string name="Frodo_16">They stay off the road, but it makes for slower going.</string>
+    <string name="Frodo_17">The group sits inside a huge tree for some food and rest.</string>
+    <string name="Frodo_18">They resume their journey with a bit of light hearted singing.</string>
+    <string name="Frodo_19">The group encounters Gildor and a company of elves, they all walk along together.</string>
+    <string name="Frodo_20">Everyone camps in Woody End where the lights of Woodhall can be seen below.</string>
+
+    <string name="Frodo_21">The Hobbits sleep late into the morning.</string>
+    <string name="Frodo_22">They cut southeast to Buckleberry Ferry.</string>
+    <string name="Frodo_23">They are forced off the road and into the bushes when they see another Black Rider.</string>
+    <string name="Frodo_24">They turn more to the east when Pippin realizes they've turned too far south.</string>
+    <string name="Frodo_25">They Stop for lunch.</string>
+    <string name="Frodo_26">They leave after hearing the cry of a Black Rider.</string>
+    <string name="Frodo_27">The Hobbits come upon Farmer Maggots fields.</string>
+    <string name="Frodo_28">They have dinner with Farmer Maggot.</string>
+    <string name="Frodo_29">Farmer Maggot drives the group towards the ferry in his wagon.</string>
+    <string name="Frodo_30">Meet Merry at the ferry landing.</string>
+    <string name="Frodo_31">The Hobbits reach Crickhollow and spend the night.</string>
+
+    <string name="Frodo_32">Frodo with Sam, Merry, and Pippin ride their ponies into the fog.</string>
+    <string name="Frodo_33">The Hobbits enter The Old Forest.</string>
+    <string name="Frodo_34">The Hobbits Follow the path as it gently climbs.</string>
+    <string name="Frodo_35">With the sun getting high in sky, the Hobbits settle down for lunch.</string>
+    <string name="Frodo_36">They leave the path when it veers southeast and try to head north.</string>
+    <string name="Frodo_37">The forest seems to be pushing them farther and farther off course.</string>
+    <string name="Frodo_38">Merry finds a path along the river. It leads them east though the wetlands.</string>
+    <string name="Frodo_39">The hobbits stop under an old willow, quickly falling asleep. Old Man Willow swallows them in their sleep, but they are rescued by Tom Bombadil.</string>
+    <string name="Frodo_40">The stars are out by the time they reach Tom Bombadil's house.</string>
+
+    <string name="Frodo_41">The hobbits spend a rainy day indoors with Tom Bombadil and his wife.</string>
+
+    <string name="Frodo_42">A little reluctantly, the hobbits leave Tom Bombadil's house</string>
+    <string name="Frodo_43">The hobbits stop atop a hill for lunch and fall asleep.</string>
+    <string name="Frodo_44">The hobbits wake at sundown in a fog. They are captured by a Barrow-Wight.</string>
+
+    <string name="Frodo_45">Tom Bombadil rescues the hobbits again.</string>
+    <string name="Frodo_46">Tom Bombadil leads them back towards the road.</string>
+    <string name="Frodo_47">The Hobbits continue along the road as Tom Bombadil returns home.</string>
+    <string name="Frodo_48">The Hobbits reach Bree and stay the The Prancing Pony where they meet Strider. The inn is attacked in the night.</string>
+
+    <string name="Frodo_49">The Hobbits leave Bree on the East Road following Strider.</string>
+    <string name="Frodo_50">They abandon the road and head north into Chetwood Forest.</string>
+    <string name="Frodo_51">They camp in Chetwood, east of the Archet.</string>
+
+    <string name="Frodo_52">Peaceful and quiet day as the group heads farther east.</string>
+    <string name="Frodo_53">Camp in Chetwood again.</string>
+
+    <string name="Frodo_54">They have left Chetwood Forest behind them.</string>
+    <string name="Frodo_55">The group has entered the western edge of The Midgewater Marshes.</string>
+    <string name="Frodo_56">Tonight they camp in Midgewater Marshes.</string>
+
+    <string name="Frodo_57">Another long day in The Midgewater Marshes.</string>
+    <string name="Frodo_58">After making camp, the group sees flashes of light to the east, but they hear no thunder.</string>
+
+    <string name="Frodo_59">The group is finally free of the Midgewater Marshes as they make for the Weather Hills.</string>
+    <string name="Frodo_60">They camp among stunted alder trees and a small stream.</string>
+
+    <string name="Frodo_61">The group hikes on towards the crumbled ruins on the hills ahead.</string>
+    <string name="Frodo_62">Camp on the foot of Weather Hills.</string>
+
+    <string name="Frodo_63">They follow the path south. Sam recites "The Fall of Gil-galad" to pass the time.</string>
+    <string name="Frodo_64">The group climps to the top of Weathertop. From the ruins of the Watchtower of Amon Sûl, they see Black Riders on the road below.</string>
+    <string name="Frodo_65">Nazgûls attack at night, Frodo is nearly killed.</string>
+
+    <string name="Frodo_66">Frodo is carried by one of the ponies as they head south.</string>
+    <string name="Frodo_67">They cross the Great East Road, but do not stay on it.</string>
+    <string name="Frodo_68">They camp in the thickets.</string>
+
+    <string name="Frodo_69">Frodo is injured. They hurry along.</string>
+    <string name="Frodo_70">Uneasy camping.</string>
+
+    <string name="Frodo_71">They follow a wide shallow curving valley.</string>
+    <string name="Frodo_72">Camp that night.</string>
+
+    <string name="Frodo_73">They continue along the valley.</string>
+    <string name="Frodo_74">Camp again in the valley.</string>
+
+    <string name="Frodo_75">The land starts to rise as they exit the valley.</string>
+    <string name="Frodo_76">Somber camp that night. Everyone is worried for Frodo.</string>
+
+    <string name="Frodo_77">They pass a "huddle of hills".</string>
+    <string name="Frodo_78">Camp not far from the river Hoarwell and The Last Bridge.</string>
+
+    <string name="Frodo_79">Briefly they return to The Great East Road.</string>
+    <string name="Frodo_80">Strider finds an elf-stone on The Last Bridge. The company crosses the river Hoarwell safely.</string>
+    <string name="Frodo_81">Camp after a day of difficult going.</string>
+
+    <string name="Frodo_82">A day of difficult climbing.</string>
+    <string name="Frodo_83">Camp and a well earned rest.</string>
+
+    <string name="Frodo_84">The weather turns wet.</string>
+    <string name="Frodo_85">A soggy camp.</string>
+
+    <string name="Frodo_86">Another day of rain as they are forced north and out of their way.</string>
+    <string name="Frodo_87">Camp on a stony shelf in a shallow cave.</string>
+
+    <string name="Frodo_88">Strider is out scouting ahead.</string>
+    <string name="Frodo_89">Head southeast scrambling over rocky ground.</string>
+    <string name="Frodo_90">Climp a high ridge and camp at the top. Strider risks a fire to fight off the cold.</string>
+
+    <string name="Frodo_91">Bright and fair day.</string>
+    <string name="Frodo_92">Reach a trail that makes for easy going.</string>
+    <string name="Frodo_93">Find a troll's lair, but continue down the path.</string>
+    <string name="Frodo_94">The company comes upon the three stone troll from Bilbo's adventures. Sam recites "Old Troll".</string>
+    <string name="Frodo_95">They return to the Great East Road.</string>
+    <string name="Frodo_96">Glorfindel comes upon them while they are looking for a place to camp.</string>
+    <string name="Frodo_97">Glorfindel joins the company as they march through the night.</string>
+
+    <string name="Frodo_98">Brief camp with even shorter rests.</string>
+    <string name="Frodo_99">They push on all day with as few rests as possible.</string>
+    <string name="Frodo_100">Camp where near where the road runs toward the Bruinen River.</string>
+
+    <string name="Frodo_101">Break camp early and push on.</string>
+    <string name="Frodo_102">Road goes cuts through some red stone and tall pines.</string>
+    <string name="Frodo_103">The Hobbits are halfway across a grassy flat when Nazgul ride up from behind them. Glorfindel takes flees with Frodo</string>
+    <string name="Frodo_104">Frodo, tired of running, makes his stand at the ford. The Wraiths are washed away in the ensuing flood.</string>
+    <string name="Frodo_105">Elves take Frodo on ahead, the rest of the company follows on foot.</string>
+    <string name="Frodo_106">Come to the sudden cliff into the valley of Rivendell.</string>
+    <string name="Frodo_107">Frodo is carried into Rivendell by the Elves. The other don't arrive until evening.</string>
+    -->
+    <!--Frodo makes it to Rivendell-->
+
+    <!--Rivendell-->
+    <!-- <string name="Frodo_108">Frodo is tended to by Elrond and the Elves.</string>
+     <string name="Frodo_109">The council of Elrond.</string>
+     <string name="Frodo_110">Elrond sends out scouts to see what has become of the Wraiths. Frodo and company wait for the scouts return.</string>
+     -->
+    <!--Leave Rivendell-->
+    <!--<string name="Frodo_111">The Fellowship leaves Rivendell at dusk.</string>
+    <string name="Frodo_112">They turn south at the Fords of Brúinen, taking narrow paths among folded lands.</string>
+    <string name="Frodo_113">Walk all through the night.</string>
+
+    <string name="Frodo_114">Make Camp at Dawn.</string>
+    <string name="Frodo_115">Cross rough and barren lands.</string>
+    <string name="Frodo_116">Walk all through the night.</string>
+
+    <string name="Frodo_117">Make Camp at Dawn.</string>
+    -->
 </resources>
