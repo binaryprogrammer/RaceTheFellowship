@@ -13,6 +13,7 @@ import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -34,15 +35,10 @@ public class MainActivity extends AppCompatActivity
 	private PedometerSettings mPedometerSettings;
 
 	private int mMapID; //resource ID for the map
-	private SubsamplingScaleImageView mMapView; //view where the map is drawn
 
 
 	private int mStepValue; //how many steps have been taken
 	private float mDistanceValue; //how far had the pedometer recorded our travel
-
-	/*TESTING PURPOSES ONLY*/
-	private float mPreviousDistance; //how far we've gone since last we updated the map
-	/*TESTING PURPOSES ONLY*/
 
 	private boolean mIsMetric; //is this in metric
 	private boolean mQuitting = false; // Set when user selected Quit from menu, can be used by onPause, onStop, onDestroy
@@ -93,10 +89,8 @@ public class MainActivity extends AppCompatActivity
 		Log.i(TAG, "[ACTIVITY] Pedometer  onStart");
 		super.onStart();
 
-		mMapView = (SubsamplingScaleImageView) findViewById(R.id.subSampleImageView);
 		mMapID = getResources().getIdentifier("map", "drawable", getPackageName());
-
-		mMapView.setImage(ImageSource.bitmap(BitmapFactory.decodeResource(getResources(), mMapID)));
+		CompositeProgress();
 	}
 
 	@Override
@@ -121,7 +115,8 @@ public class MainActivity extends AppCompatActivity
 		mPedometerSettings.clearServiceRunning();
 
 		if (mDistanceValue > 0)
-			mMapView.setImage(ImageSource.bitmap(CompositeProgress()));
+			CompositeProgress();
+			//mMapView.setImage(ImageSource.bitmap(CompositeProgress()));
 
 		mIsMetric = mPedometerSettings.isMetric(); //check settings to see metric or english units
 	}
@@ -254,7 +249,8 @@ public class MainActivity extends AppCompatActivity
 					count++;
 					if (count > 20) //if (mDistanceValue - mPreviousDistance > .1)
 					{
-						mMapView.setImage(ImageSource.bitmap(CompositeProgress()));
+						//mMapView.setImage(ImageSource.bitmap(CompositeProgress()));
+						CompositeProgress();
 						count = 0;
 					}
 					/*TESTING PURPOSES ONLY*/
@@ -266,79 +262,16 @@ public class MainActivity extends AppCompatActivity
 		}
 	};
 
-	//position and rotation of each footstep graphic to be composited onto the map background.
-	private Matrix[] footstepsM = new Matrix[56];
-
-	//filled with testing code. For example, hobbit feet should be based on date from start, not distance traveled.
-	protected Bitmap CompositeProgress() //float progress
+	private void CompositeProgress()
 	{
-		Log.i(TAG, "Composite Image of Map.");
-
 		int feetOutlineID = getResources().getIdentifier("hobbitfeetoutline", "drawable", getPackageName());
 		int feetFillID = getResources().getIdentifier("whitefillfeettextured", "drawable", getPackageName());
 
 		Bitmap map = BitmapFactory.decodeResource(getResources(), mMapID);
 		Bitmap feetOutline = BitmapFactory.decodeResource(getResources(), feetOutlineID);
 		Bitmap feetFill = BitmapFactory.decodeResource(getResources(), feetFillID);
-		Bitmap feetPercent = feetFill.copy(feetFill.getConfig(), true);
 
-		Bitmap result = Bitmap.createBitmap(map.getWidth(), map.getHeight(), Bitmap.Config.RGB_565);
-		Canvas canvas = new Canvas(result);
-		canvas.drawBitmap(map, 0f, 0f, null);
-
-		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		ColorFilter filter = new LightingColorFilter(Color.rgb(255, 194, 31), 0);
-		paint.setColorFilter(filter);
-
-		/* CURRENTLY WE ASSUME EACH SET OF FEET IS 20 MILES. */
-
-		//How many complete steps have we traveled so far.
-		int steps = Math.round((mDistanceValue + .99f) / 20); //add .99 then round down, this effectivly forces the number to round up
-		//What percent are we through the current foot
-		float percent = (mDistanceValue % 20f) / 20f;
-
-
-		//How far along are we in the 'current' feet.
-		percent = Math.round((feetPercent.getHeight() * percent) + .5f); //add .5f so when we floor our number, it rounds up correctly.
-
-		for (int x = 0; x < feetPercent.getWidth(); ++x) {
-			for (int y = feetPercent.getHeight()-1; y > 0; --y)
-			{
-				//check how high we've gotten along the Y axis in the bitmap.
-				if (y < feetPercent.getHeight() - (percent + 1))
-				{
-					feetPercent.setPixel(x, y, Color.TRANSPARENT);
-				}
-			}
-		}
-
-		//We cannot go farther than all the way.
-		if (steps > footstepsM.length)
-			steps = footstepsM.length;
-
-		//Draw the feet on top of the map image.
-		for (int i = 0; i < steps; ++i)
-		{
-			footstepsM[i] = new Matrix();
-			footstepsM[i].setRotate(FellowshipPathData.rot[i], feetOutline.getWidth() / 2, feetOutline.getHeight() / 2); //rotate around the center, not a corner;
-
-			Log.i(TAG, "foot positions are: " + (FellowshipPathData.pos[i][0] + 10) + "x " + (FellowshipPathData.pos[i][1] + 10) + "y.");
-			footstepsM[i].postTranslate(FellowshipPathData.pos[i][0] + 10, FellowshipPathData.pos[i][1] + 10);
-
-			if (i == steps - 1)
-			{
-				//this is the current step, we need to draw the percentage
-				canvas.drawBitmap(feetPercent, footstepsM[i], paint);
-			}
-			else
-			{
-				canvas.drawBitmap(feetFill, footstepsM[i], paint);
-			}
-
-			canvas.drawBitmap(feetOutline, footstepsM[i], paint);
-		}
-
-		mPreviousDistance = mDistanceValue;
-		return result;
+		Log.i(TAG, "Update map image to distance of: " + mDistanceValue);
+		new CompositeMapImageTask(findViewById(R.id.subSampleImageView) , map, feetOutline, feetFill, mDistanceValue).execute();
 	}
 }
